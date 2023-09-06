@@ -2,7 +2,7 @@ pipeline {
     agent { 
         node {
             // label 'docker-agent-alpine'
-            label 'Built-In Node'
+            label 'master'
             }
       }
     triggers {
