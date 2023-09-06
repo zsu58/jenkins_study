@@ -1,8 +1,7 @@
 pipeline {
     agent { 
         node {
-            // label 'docker-agent-alpine'
-            label 'master'
+            label 'docker-agent-python'
             }
       }
     triggers {
@@ -14,6 +13,8 @@ pipeline {
                 echo "Building.."
                 sh '''
                 cd app
+                apt-get update -y
+                apt-get install python3 -y
                 '''
             }
         }
