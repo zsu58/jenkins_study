@@ -1,7 +1,8 @@
 pipeline {
     agent { 
         node {
-            label 'docker-agent-alpine'
+            // label 'docker-agent-alpine'
+            label 'Built-In Node'
             }
       }
     triggers {
@@ -12,8 +13,7 @@ pipeline {
             steps {
                 echo "Building.."
                 sh '''
-                cd myapp
-                pip install -r requirements.txt
+                cd app
                 '''
             }
         }
@@ -21,9 +21,9 @@ pipeline {
             steps {
                 echo "Testing.."
                 sh '''
-                cd myapp
+                cd app
                 python3 hello.py
-                python3 hello.py --name=Brad
+                python3 hello.py jenkins
                 '''
             }
         }
